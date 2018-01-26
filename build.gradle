@@ -1,0 +1,35 @@
+
+buildscript {
+    repositories{
+        mavenCentral()
+    }
+    dependencies{
+        classpath('org.springframework.boot:spring-boot-gradle-plugin:1.5.0.RELEASE')
+    }
+}
+
+
+group 'com.sjmillington.spring-data-rest-api'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-data-rest'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'org.springframework.boot:spring-boot-starter-security'
+    compile 'org.springframework.security.oauth:spring-security-oauth2'
+    //use mysql
+    compile group: 'mysql', name:'mysql-connector-java', version:'6.0.6'
+    compile 'com.h2database:h2'
+    //turns root directory into interactive bootstrapped webpage.
+    compile 'org.springframework.data:spring-data-rest-hal-browser'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
